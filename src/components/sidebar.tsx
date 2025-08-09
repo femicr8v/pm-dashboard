@@ -2,11 +2,6 @@
 
 import {
   LayoutDashboard,
-  Settings,
-  Users,
-  FolderKanban,
-  Calendar,
-  BarChart3,
   Menu,
   Bell,
   Search,
@@ -20,40 +15,7 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-
-const navigation = [
-  {
-    name: "Dashboard",
-    href: "/",
-    icon: LayoutDashboard,
-  },
-  {
-    name: "Projects",
-    href: "/projects",
-    icon: FolderKanban,
-    badge: "3",
-  },
-  {
-    name: "Team",
-    href: "/team",
-    icon: Users,
-  },
-  {
-    name: "Calendar",
-    href: "/calendar",
-    icon: Calendar,
-  },
-  {
-    name: "Analytics",
-    href: "/analytics",
-    icon: BarChart3,
-  },
-  {
-    name: "Settings",
-    href: "/settings",
-    icon: Settings,
-  },
-];
+import { navigation_items } from "@/lib/constants";
 
 function SidebarContent() {
   const pathname = usePathname();
@@ -73,7 +35,7 @@ function SidebarContent() {
       {/* Navigation */}
       <div className="flex-1 overflow-auto py-4">
         <nav className="space-y-1 px-3">
-          {navigation.map((item) => {
+          {navigation_items.map((item) => {
             const isActive = pathname === item.href;
             return (
               <Link key={item.name} href={item.href}>
